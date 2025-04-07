@@ -1,0 +1,53 @@
+@workshop.webapi_HostAddress = https://localhost:7014
+
+### Seed some data
+GET {{workshop.webapi_HostAddress}}/seed/
+Accept: application/json
+### 
+
+### Get all records 
+GET {{workshop.webapi_HostAddress}}/weather/
+Accept: application/json
+### 
+
+### Get first record
+GET {{workshop.webapi_HostAddress}}/weather/1
+Accept: application/json
+###
+
+### Delete first record
+DELETE {{workshop.webapi_HostAddress}}/weather/1
+Accept: application/json
+###
+
+
+### Post a new entry 
+### note: id is 0 
+POST {{workshop.webapi_HostAddress}}/weather
+Content-Type: application/json
+
+{
+    "id": 0,
+    "date": "2025-04-11",
+    "temperatureC": 0,
+    "temperatureF": 0,
+    "summary": "Freezing"
+}
+###
+
+### Put to update record
+### Notes:
+### id sent in url
+### in the real world you would send in a custom DTO / automapper
+
+PUT {{workshop.webapi_HostAddress}}/weather/1
+Content-Type: application/json
+
+{
+    "id": 0,
+    "date": "2025-04-11",
+    "temperatureC": -100,
+    "temperatureF": 0,
+    "summary": "Its really cold now!!"
+}
+###
